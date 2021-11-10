@@ -7,10 +7,10 @@ namespace MathForGamesAssessment
         static void Main(string[] args)
         {
             //Create a new instance of Game
-            Game game = new Game();
+            Engine engine = new Engine();
 
             //Run the Game
-            game.Run();
+            engine.Run();
         }
     }
 }

@@ -70,7 +70,7 @@ namespace MathForGamesAssessment
         /// </summary>
         /// <param name="other">The type of collider to check collision for</param>
         /// <returns>True if collision occured</returns>
-        public virtual bool CheckCollisionCircle(circleCollider other) { return false; }
+        public virtual bool CheckCollisionCircle(CircleCollider other) { return false; }
 
         /// <summary>
         /// Check for collision for a AABB collider
