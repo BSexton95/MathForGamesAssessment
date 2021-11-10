@@ -69,6 +69,43 @@ namespace MathForGamesAssessment
             //Create an instance of a scene
             Scene scene = new Scene();
 
+            //Player
+            Player player = new Player(1, 1, 100, "Player", "Images/player.png");
+            player.SetScale(50, 50);
+            player.SetTranslation(400, 200);
+            player.SetRotation(1.57f);
+            //Player Collider
+            CircleCollider playerCircleCollider = new CircleCollider(20, player);
+            player.Collider = playerCircleCollider;
+            //Add player to scene
+            scene.AddActor(player);
+
+            //Enemy1
+            Enemy enemy = new Enemy(1, 1, 50, 50, 50, player, "Enemy", "Images/enemy.png");
+            enemy.SetScale(50, 50);
+            enemy.SetTranslation(400, 40);
+            enemy.SetRotation(-1.57f);
+            //Enemy1 Collider
+            AABBCollider enemyBoxCollider = new AABBCollider(50, 50, enemy);
+            enemy.Collider = enemyBoxCollider;
+            //Add enemy to scene
+            scene.AddActor(enemy);
+
+            //Enemy2
+            Enemy enemy2 = new Enemy(1, 1, 40, 50, 50, player, "Enemy", "Images/enemy.png");
+            enemy2.SetScale(50, 50);
+            enemy2.SetTranslation(200, 40);
+            enemy2.SetRotation(-1.57f);
+            //Enemy2 Collider
+            AABBCollider enemy2BoxCollider = new AABBCollider(50, 50, enemy2);
+            enemy2.Collider = enemy2BoxCollider;
+            //Add enemy2 to scene
+            scene.AddActor(enemy2);
+
+            _currentSceneIndex = AddScene(scene);
+            _scenes[_currentSceneIndex].Start();
+
+            Console.CursorVisible = false;
 
         }
 

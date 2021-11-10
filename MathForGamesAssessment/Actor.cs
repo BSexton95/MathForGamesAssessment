@@ -116,7 +116,7 @@ namespace MathForGamesAssessment
                 return new Vector2(xScale, yScale);
             }
         }
-
+        
         //Actors forward direction in the x direction
         public Vector2 Forward
         {
@@ -130,7 +130,7 @@ namespace MathForGamesAssessment
                 LookAt(point);
             }
         }
-
+        
         /// <summary>
         /// The collider attached to this actor
         /// </summary>
@@ -275,10 +275,12 @@ namespace MathForGamesAssessment
             //Call function to update all transforms
             UpdateTransforms();
 
+            /*
             //If the actor is not the player...
             if (_name != "Player")
                 //...rotate the actor
                 Rotate(deltaTime);
+            */
 
             //Writes actors local position on the x and y to the console screen
             Console.WriteLine(_name + ": " + LocalPosition.X + ", " + LocalPosition.Y);
@@ -371,6 +373,7 @@ namespace MathForGamesAssessment
             _scale *= Matrix3.CreateScale(x, y);
         }
 
+        
         /// <summary>
         /// Rotates the actor to face the given position
         /// </summary>
@@ -403,5 +406,6 @@ namespace MathForGamesAssessment
 
             Rotate(angle);
         }
+        
     }
 }

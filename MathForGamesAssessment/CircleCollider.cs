@@ -48,5 +48,14 @@ namespace MathForGamesAssessment
 
             return distance <= combinedRadii;
         }
+
+        /// <summary>
+        /// Draws the circle collider around actor
+        /// </summary>
+        public override void Draw()
+        {
+            base.Draw();
+            Raylib.DrawCircleLines((int)Owner.LocalPosition.X, (int)Owner.LocalPosition.Y, CollisionRadius, Color.RED);
+        }
     }
 }

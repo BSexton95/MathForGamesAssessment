@@ -32,6 +32,7 @@ namespace MathForGamesAssessment
             set { _velocity = value; }
         }
 
+
         /// <summary>
         /// Enemy constructor
         /// </summary>
@@ -65,9 +66,16 @@ namespace MathForGamesAssessment
             //it's speed and the time elapsed
             Velocity = enemyDistance * _speed * deltaTime;
 
-            if (GetTargetInSight())
-                LocalPosition += Velocity;
+            LocalPosition += Velocity;
 
+            //If enemy has target in sight...
+            if (GetTargetInSight())
+            {
+                //...move and turn towards target
+                LocalPosition += Velocity;
+                
+            }
+            LookAt(_target.LocalPosition);
             base.Update(deltaTime);
         }
 
@@ -100,5 +108,6 @@ namespace MathForGamesAssessment
             base.Draw();
             Collider.Draw();
         }
+
     }
 }
