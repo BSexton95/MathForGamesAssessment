@@ -116,7 +116,7 @@ namespace MathForGamesAssessment
         private void Update(float deltaTime)
         {
             //Update scenes and the current scene index
-            _scenes[_currentSceneIndex].Update(deltaTime);
+            _scenes[_currentSceneIndex].Update(deltaTime, _scenes[_currentSceneIndex]);
         }
 
         /// <summary>

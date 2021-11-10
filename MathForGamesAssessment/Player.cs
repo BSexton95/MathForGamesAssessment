@@ -43,7 +43,7 @@ namespace MathForGamesAssessment
             _speed = speed;
         }
 
-        public override void Update(float deltaTime)
+        public override void Update(float deltaTime, Scene currentScene)
         {
             //Get the player input direction
             int xDirection = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_A))
@@ -57,6 +57,20 @@ namespace MathForGamesAssessment
             else
                 _speed = 100;
 
+
+            //If player pressed the spacebar...
+            if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
+            {
+                //...bullet spawns
+                Bullet bullet = new Bullet(LocalPosition, Forward, 150, "Bullet", "Images/bullet.png");
+                bullet.SetScale(50, 50);
+                CircleCollider bulletCricleCollider = new CircleCollider(10, bullet);
+                bullet.Collider = bulletCricleCollider;
+
+                //Add bullet to scene
+                currentScene.AddActor(bullet);
+            }
+
             //Create a vector that stores the move input
             Vector2 moveDirection = new Vector2(xDirection, yDirection);
 
@@ -68,7 +82,7 @@ namespace MathForGamesAssessment
             if (Velocity.Magnitude > 0)
                 Forward = Velocity.Normalized;
 
-            base.Update(deltaTime);
+            base.Update(deltaTime, currentScene);
         }
     }
 }

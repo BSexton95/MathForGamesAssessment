@@ -29,7 +29,7 @@ namespace MathForGamesAssessment
         /// Calls start for the actor if it hasn't already been called
         /// </summary>
         /// <param name="deltaTime">Elapsed time</param>
-        public virtual void Update(float deltaTime)
+        public virtual void Update(float deltaTime, Scene currentScene)
         {
             //Loop through intire actor array
             for (int i = 0; i < _actors.Length; i++)
@@ -40,7 +40,7 @@ namespace MathForGamesAssessment
                     _actors[i].Start();
 
                 //Call actors update function
-                _actors[i].Update(deltaTime);
+                _actors[i].Update(deltaTime, currentScene);
 
                 //Loop checks for a collision
                 for (int j = 0; j < _actors.Length; j++)

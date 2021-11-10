@@ -57,7 +57,7 @@ namespace MathForGamesAssessment
         /// Updates the enemys velocity
         /// </summary>
         /// <param name="deltaTime">Elapsed time</param>
-        public override void Update(float deltaTime)
+        public override void Update(float deltaTime, Scene currentScene)
         {
             //Find distance between the enemy and its target
             Vector2 enemyDistance = (_target.LocalPosition - LocalPosition).Normalized;
@@ -76,7 +76,7 @@ namespace MathForGamesAssessment
                 
             }
             LookAt(_target.LocalPosition);
-            base.Update(deltaTime);
+            base.Update(deltaTime, currentScene);
         }
 
         /// <summary>

@@ -267,7 +267,7 @@ namespace MathForGamesAssessment
         /// Updates actors transforms, rotates actor, and displays the actors local position
         /// </summary>
         /// <param name="deltaTime">Elapsed time</param>
-        public virtual void Update(float deltaTime)
+        public virtual void Update(float deltaTime, Scene currentScene)
         {
             //Sets the local transform to be the translatios multiplyed by the rotation and scale.
             _localTransform = _translation * _rotation * _scale;
