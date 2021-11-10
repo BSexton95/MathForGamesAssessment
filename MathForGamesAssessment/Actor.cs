@@ -307,10 +307,10 @@ namespace MathForGamesAssessment
         public virtual bool CheckForCollision(Actor other)
         {
             //Return false if either actor doesn't have a collider attached
-            if (Collider == null || other.Collder == null)
-                return flase;
+            if (Collider == null || other.Collider == null)
+                return false;
 
-            returen Collider.CheckCollision(other);
+            return Collider.CheckCollision(other);
         }
 
         /// <summary>
