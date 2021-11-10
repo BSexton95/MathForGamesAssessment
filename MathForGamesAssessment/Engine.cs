@@ -66,7 +66,9 @@ namespace MathForGamesAssessment
             Raylib.InitWindow(800, 450, "Assessment");
             Raylib.SetTargetFPS(0);
 
+            //Create an instance of a scene
             Scene scene = new Scene();
+
 
         }
 
