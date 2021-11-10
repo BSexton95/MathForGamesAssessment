@@ -108,5 +108,54 @@ namespace MathForGamesAssessment
             while ((Console.KeyAvailable))
                 Console.ReadKey(true);
         }
+
+        /// <summary>
+        /// Adds a scene to the engine's scene array
+        /// </summary>
+        /// <param name="scene">The scene that will be added to the scene array</param>
+        /// <returns>The index that the new scene is located</returns>
+        public int AddScene(Scene scene)
+        {
+            //Create a new temporary array
+            Scene[] tempArray = new Scene[_scenes.Length + 1];
+
+            //Copy all values from old array into the new array
+            for (int i = 0; i < _scenes.Length; i++)
+            {
+                tempArray[i] = _scenes[i];
+            }
+
+            //Set the last index to be the new scene
+            tempArray[_scenes.Length] = scene;
+
+            //Set the old array to be the new array
+            _scenes = tempArray;
+
+            //Return the last index
+            return _scenes.Length - 1;
+        }
+
+        /// <summary>
+        /// Gets the next key in the input stream 
+        /// </summary>
+        /// <returns>The key that was pressed</returns>
+        public static ConsoleKey GetNextKey()
+        {
+            //If there is no key being pressed...
+            if (!Console.KeyAvailable)
+                //...return
+                return 0;
+
+            //Return the current key being pressed
+            return Console.ReadKey(true).Key;
+        }
+
+        /// <summary>
+        /// Ends the application
+        /// </summary>
+        public static void CloseApplication()
+        {
+            _applicationShouldClose = true;
+        }
     }
 }
