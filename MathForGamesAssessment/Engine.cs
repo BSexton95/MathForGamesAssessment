@@ -77,8 +77,6 @@ namespace MathForGamesAssessment
             //Player Collider
             CircleCollider playerCircleCollider = new CircleCollider(20, player);
             player.Collider = playerCircleCollider;
-            //AABBCollider playerBoxCollider = new AABBCollider(50, 50, player);
-            //player.Collider = playerBoxCollider;
             //Add player to scene
             scene.AddActor(player);
 
@@ -88,10 +86,8 @@ namespace MathForGamesAssessment
             enemy.SetTranslation(400, 40);
             enemy.SetRotation(-1.57f);
             //Enemy1 Collider
-            //AABBCollider enemyBoxCollider = new AABBCollider(50, 50, enemy);
-            //enemy.Collider = enemyBoxCollider;
-            CircleCollider enemyCircleCollider = new CircleCollider(20, enemy);
-            enemy.Collider = enemyCircleCollider;
+            AABBCollider enemyBoxCollider = new AABBCollider(50, 50, enemy);
+            enemy.Collider = enemyBoxCollider;
             //Add enemy to scene
             scene.AddActor(enemy);
 
@@ -105,6 +101,26 @@ namespace MathForGamesAssessment
             enemy2.Collider = enemy2BoxCollider;
             //Add enemy2 to scene
             scene.AddActor(enemy2);
+
+            //Enemy3
+            Enemy enemy3 = new Enemy(1, 1, 40, 50, 50, player, "Enemy", "Images/enemy.png");
+            enemy3.SetScale(50, 50);
+            enemy3.SetTranslation(1000, 40);
+            //Enemy3 Collider
+            AABBCollider enemy3BoxCollider = new AABBCollider(50, 50, enemy3);
+            enemy3.Collider = enemy3BoxCollider;
+            //Add enemy3 to scene
+            scene.AddActor(enemy3);
+
+            //Enemy4
+            Enemy enemy4 = new Enemy(1, 1, 50, 50, 50, player,"Enemy", "Images/enemy.png");
+            enemy4.SetScale(50, 50);
+            enemy4.SetTranslation(-1000, 40);
+            //Enemy4 Collider
+            AABBCollider enemy4BoxCollider = new AABBCollider(50, 50, enemy4);
+            enemy4.Collider = enemy4BoxCollider;
+            //Add enemy4 to scene
+            scene.AddActor(enemy4);
 
             _currentSceneIndex = AddScene(scene);
             _scenes[_currentSceneIndex].Start();
