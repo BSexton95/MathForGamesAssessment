@@ -22,7 +22,11 @@ namespace MathForGamesAssessment
         /// <summary>
         /// Calls start for all actors in the actors array
         /// </summary>
-        public virtual void Start() { }
+        public virtual void Start() 
+        {
+            for (int i = 0; i < _actors.Length; i++)
+                _actors[i].Start();
+        }
 
         /// <summary>
         /// Calls update for every actor in the scene.
@@ -45,10 +49,13 @@ namespace MathForGamesAssessment
                 //Loop checks for a collision
                 for (int j = 0; j < _actors.Length; j++)
                 {
-                    //If both actors local positio are the same...
-                    if (_actors[i].LocalPosition == _actors[j].LocalPosition && j != 1)
-                        //...a collision has occured
-                        _actors[i].OnCollision(_actors[j]);
+                    if (i < _actors.Length)
+                    {
+                        //If both actors local positio are the same...
+                        if (_actors[i].CheckForCollision(_actors[j]) && j != i)
+                            //...a collision has occured
+                            _actors[i].OnCollision(_actors[j], currentScene);
+                    }
                 }
             }
         }
@@ -60,6 +67,7 @@ namespace MathForGamesAssessment
         {
             for (int i = 0; i < _actors.Length; i++)
                 _actors[i].Draw();
+            
         }
 
         /// <summary>
@@ -108,7 +116,7 @@ namespace MathForGamesAssessment
 
             //Copy all values except the actor we don't want into the new array
             int j = 0;
-            for (int i = 0; i < tempArray.Length; i++)
+            for (int i = 0; i < _actors.Length; i++)
             {
                 //If the actor that the loop is on is not the one to remove...
                 if (_actors[i] != actor)

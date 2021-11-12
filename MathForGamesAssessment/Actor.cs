@@ -299,7 +299,7 @@ namespace MathForGamesAssessment
 
         public void End() { }
 
-        public virtual void OnCollision(Actor actor) { }
+        public virtual void OnCollision(Actor actor, Scene scene) { }
 
         /// <summary>
         /// Checks if this actor collided with another actor

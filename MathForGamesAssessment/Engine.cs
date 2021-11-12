@@ -77,6 +77,8 @@ namespace MathForGamesAssessment
             //Player Collider
             CircleCollider playerCircleCollider = new CircleCollider(20, player);
             player.Collider = playerCircleCollider;
+            //AABBCollider playerBoxCollider = new AABBCollider(50, 50, player);
+            //player.Collider = playerBoxCollider;
             //Add player to scene
             scene.AddActor(player);
 
@@ -86,8 +88,10 @@ namespace MathForGamesAssessment
             enemy.SetTranslation(400, 40);
             enemy.SetRotation(-1.57f);
             //Enemy1 Collider
-            AABBCollider enemyBoxCollider = new AABBCollider(50, 50, enemy);
-            enemy.Collider = enemyBoxCollider;
+            //AABBCollider enemyBoxCollider = new AABBCollider(50, 50, enemy);
+            //enemy.Collider = enemyBoxCollider;
+            CircleCollider enemyCircleCollider = new CircleCollider(20, enemy);
+            enemy.Collider = enemyCircleCollider;
             //Add enemy to scene
             scene.AddActor(enemy);
 

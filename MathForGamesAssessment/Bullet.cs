@@ -68,12 +68,14 @@ namespace MathForGamesAssessment
         /// When a collision with a bullet occurs...
         /// </summary>
         /// <param name="actor"></param>
-        public override void OnCollision(Actor actor)
+        public override void OnCollision(Actor actor, Scene scene)
         {
-            //If player collides with enemy...
+            //If bullet collides with enemy...
             if (actor is Enemy)
             {
                 //...enemy and the bullet are removed from scene
+                scene.RemoveActor(actor);
+                scene.RemoveActor(this);
             }
 
         }

@@ -84,5 +84,15 @@ namespace MathForGamesAssessment
 
             base.Update(deltaTime, currentScene);
         }
+
+        public override void OnCollision(Actor actor, Scene scene)
+        {
+            //If player collides with enemy...
+            if(actor is Enemy)
+            {
+                //...player respawns
+                LocalPosition = new Vector2(20, 20);
+            }
+        }
     }
 }
