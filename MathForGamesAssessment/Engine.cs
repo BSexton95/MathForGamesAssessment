@@ -122,6 +122,15 @@ namespace MathForGamesAssessment
             //Add enemy4 to scene
             scene.AddActor(enemy4);
 
+            //Star
+            Actor star = new Actor(1, 1, "Star", "Images/bullet.png");
+            star.SetScale(50, 50);
+            star.SetTranslation(100, 100);
+            //Star Collider
+            CircleCollider starCircleCollider = new CircleCollider(10, star);
+            star.Collider = starCircleCollider;
+            //Add 
+
             _currentSceneIndex = AddScene(scene);
             _scenes[_currentSceneIndex].Start();
 
