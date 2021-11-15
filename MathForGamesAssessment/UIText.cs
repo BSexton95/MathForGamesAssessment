@@ -26,7 +26,7 @@ namespace MathForGamesAssessment
         public UIText(float x, float y, Color color, string name, string text = " ") : base(x, y, name)
         {
             Text = text;
-            Width = 200;
+            Width = 300;
             Height = 200;
             Font = Raylib.LoadFont("resources/fonts/alagard.png");
             FontSize = 20;

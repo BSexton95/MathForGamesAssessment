@@ -121,7 +121,7 @@ namespace MathForGamesAssessment
 
         public override void Draw()
         {
-            Raylib.DrawRectangleLines((int)Left, (int)Top, (int)Width, (int)Height, Color.RED);
+            //Raylib.DrawRectangleLines((int)Left, (int)Top, (int)Width, (int)Height, Color.RED);
         }
     }
 }

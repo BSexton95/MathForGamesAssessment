@@ -6,12 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\asteroid.png" />
     <None Remove="Images\bullet.png" />
     <None Remove="Images\enemy.png" />
     <None Remove="Images\player.png" />
+    <None Remove="Images\sun.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Images\asteroid.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\bullet.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -19,6 +24,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\player.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\sun.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

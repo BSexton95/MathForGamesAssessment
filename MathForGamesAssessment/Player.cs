@@ -57,9 +57,6 @@ namespace MathForGamesAssessment
             else
                 _speed = 100;
 
-           
-
-
 
             //If player pressed the spacebar...
             if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
@@ -88,6 +85,10 @@ namespace MathForGamesAssessment
             base.Update(deltaTime);
         }
 
+        /// <summary>
+        /// Function decrements lives when player collides with enemy and displays you lose if lives is 0
+        /// </summary>
+        /// <param name="actor">Actor that player has collided with</param>
         public override void OnCollision(Actor actor)
         {
             //If player collides with enemy...
@@ -99,10 +100,21 @@ namespace MathForGamesAssessment
                 //Decrements lives when player runs into enemy
                 GameManager._lives--;
 
-                //When player has no more lives...
+                //If player has no more lives...
                 if (GameManager._lives < 1)
-                    Engine.CloseApplication();
+                {
+                    //...lives is set to 0
+                    GameManager._lives = 0;
+
+                    //player is removed from scene
+                    Engine.GetCurrentScene().RemoveActor(this);
+
+                    //UIText telling player they lost
+                    UIText youLose = new UIText(300, 200, Color.BLUE, "You Lose!", "YOU LOSE!");
+                    Engine.GetCurrentScene().AddUIElement(youLose);
+                }
             }
+
         }
     }
 }

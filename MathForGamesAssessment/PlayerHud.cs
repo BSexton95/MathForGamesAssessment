@@ -18,6 +18,8 @@ namespace MathForGamesAssessment
         public override void Start()
         {
             base.Start();
+            _enemys.Start();
+            _lives.Start();
         }
 
         public override void Update(float deltaTime)

@@ -92,7 +92,7 @@ namespace MathForGamesAssessment
             enemy.Collider = enemyBoxCollider;
             //Add enemy to scene
             scene.AddActor(enemy);
-
+            
             //Enemy2
             Enemy enemy2 = new Enemy(1, 1, 40, 50, 50, player, "Enemy", "Images/enemy.png");
             enemy2.SetScale(40, 40);
@@ -117,41 +117,112 @@ namespace MathForGamesAssessment
             //Enemy4
             Enemy enemy4 = new Enemy(1, 1, 50, 50, 50, player,"Enemy", "Images/enemy.png");
             enemy4.SetScale(40, 40);
-            enemy4.SetTranslation(-1000, 40);
+            enemy4.SetTranslation(-100, 40);
             //Enemy4 Collider
             AABBCollider enemy4BoxCollider = new AABBCollider(40, 40, enemy4);
             enemy4.Collider = enemy4BoxCollider;
             //Add enemy4 to scene
             scene.AddActor(enemy4);
-            
-            //Planet
-            Actor planet = new Actor(1, 1, "Planet", "Images/bullet.png");
-            planet.SetScale(50, 50);
-            planet.SetTranslation(600, 40);
-            //Planet Collider
-            CircleCollider planetCircleCollider = new CircleCollider(10, planet);
-            planet.Collider = planetCircleCollider;
+
+            //Enemy5
+            Enemy enemy5 = new Enemy(1, 1, 40, 50, 50, player, "Enemy", "Images/enemy.png");
+            enemy5.SetScale(40, 40);
+            enemy5.SetTranslation(-200, 40);
+            //Enemy5 Collider
+            AABBCollider enemy5BoxCollider = new AABBCollider(40, 40, enemy5);
+            enemy5.Collider = enemy5BoxCollider;
+            //Add enemy5 to scene
+            scene.AddActor(enemy5);
+
+            //Enemy6
+            Enemy enemy6 = new Enemy(1, 1, 40, 50, 50, player, "Enemy", "Images/enemy.png");
+            enemy6.SetScale(40, 40);
+            enemy6.SetTranslation(-500, -700);
+            //Enemy6 Collider
+            AABBCollider enemy6BoxCollider = new AABBCollider(40, 40, enemy6);
+            enemy6.Collider = enemy6BoxCollider;
+            //Add enemy5 to scene
+            scene.AddActor(enemy6);
+
+            //Enemy7
+            Enemy enemy7 = new Enemy(1, 1, 40, 50, 50, player, "Enemy", "Images/enemy.png");
+            enemy7.SetScale(40, 40);
+            enemy7.SetTranslation(1500, 200);
+            //Enemy7 Collider
+            AABBCollider enemy7BoxCollider = new AABBCollider(40, 40, enemy7);
+            enemy7.Collider = enemy7BoxCollider;
+            //Add enemy5 to scene
+            scene.AddActor(enemy7);
+
+
+            //Enemy8
+            Enemy enemy8 = new Enemy(1, 1, 40, 50, 50, player, "Enemy", "Images/enemy.png");
+            enemy8.SetScale(40, 40);
+            enemy8.SetTranslation(1000, 1000);
+            //Enemy8 Collider
+            AABBCollider enemy8BoxCollider = new AABBCollider(40, 40, enemy8);
+            enemy8.Collider = enemy8BoxCollider;
+            //Add enemy5 to scene
+            scene.AddActor(enemy8);
+
+            //Enemy9
+            Enemy enemy9 = new Enemy(1, 1, 40, 50, 50, player, "Enemy", "Images/enemy.png");
+            enemy9.SetScale(40, 40);
+            enemy9.SetTranslation(-100, -500);
+            //Enemy9 Collider
+            AABBCollider enemy9BoxCollider = new AABBCollider(40, 40, enemy9);
+            enemy9.Collider = enemy9BoxCollider;
+            //Add enemy5 to scene
+            scene.AddActor(enemy9);
+
+            //Enemy10
+            Enemy enemy10 = new Enemy(1, 1, 40, 50, 50, player, "Enemy", "Images/enemy.png");
+            enemy10.SetScale(40, 40);
+            enemy10.SetTranslation(-100, -200);
+            //Enemy10 Collider
+            AABBCollider enemy10BoxCollider = new AABBCollider(40, 40, enemy10);
+            enemy10.Collider = enemy10BoxCollider;
+            //Add enemy5 to scene
+            scene.AddActor(enemy10);
+
+            //Sun
+            Actor sun = new Actor(1, 1, "Planet", "Images/sun.png");
+            sun.SetScale(50, 50);
+            sun.SetTranslation(650, 100);
+            //Sun Collider
+            CircleCollider planetCircleCollider = new CircleCollider(10, sun);
+            sun.Collider = planetCircleCollider;
             //Add planet to scene
-            scene.AddActor(planet);
+            scene.AddActor(sun);
 
             //Star
-            Actor star = new Actor(1, 1, "Star", "Images/bullet.png");
-            star.SetScale(1, 1);
+            Actor star = new Actor(1, 1, "Star", "Images/asteroid.png");
+            star.SetScale(0.7f, 0.7f);
             star.SetTranslation(1, 1);
             //Star Collider
             CircleCollider starCircleCollider = new CircleCollider(10, star);
             star.Collider = starCircleCollider;
             //Add star as child
-            planet.AddChild(star);
+            sun.AddChild(star);
             //Add star to scene
             scene.AddActor(star);
 
             //UIText Points
-            UIText enemys = new UIText(, 10, Color.BLUE, "Enemys", "Enemys: " + GameManager._enemyCounter);
+            UIText enemys = new UIText(1, 20, Color.BLUE, "Enemys", "Enemys: " + GameManager._enemyCounter);
+            //UIText Lives
             UIText lives = new UIText(1, 1, Color.BLUE, "Lives", "Lives: " + GameManager._lives);
 
+            //Player hud
             PlayerHud playerHud = new PlayerHud(enemys, lives);
             scene.AddUIElement(playerHud);
+
+            //Scaling Example
+            UIText scaleExample = new UIText(1, 400, Color.BLUE, "Scale Example", "Want a bigger planet? Press B");
+            scene.AddUIElement(scaleExample);
+
+            //UIText to tell player shift increases speed
+            UIText speedUp = new UIText(1, 420, Color.BLUE, "Speed Up", "To speed up hold left shift");
+            scene.AddUIElement(speedUp);
 
             _currentSceneIndex = AddScene(scene);
             _scenes[_currentSceneIndex].Start();

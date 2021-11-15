@@ -8,12 +8,5 @@ namespace MathForGamesAssessment
     {
         public static int _enemyCounter;
         public static int _lives = 3;
-
-        public void Update()
-        {
-            if (_enemyCounter == 0)
-                Engine.CloseApplication();
-        }
-
     }
 }

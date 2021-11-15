@@ -53,10 +53,14 @@ namespace MathForGamesAssessment
             _maxSightDistance = maxSightDistance;
         }
 
+        /// <summary>
+        /// Calls base start function and increments the enemy counter
+        /// </summary>
         public override void Start()
         {
             base.Start();
             GameManager._enemyCounter++;
+
         }
 
         /// <summary>
@@ -118,6 +122,13 @@ namespace MathForGamesAssessment
         public override void End()
         {
             GameManager._enemyCounter--;
+
+            if (GameManager._enemyCounter == 0)
+            {
+                UIText winner = new UIText(300, 200, Color.BLUE, "Winner", "YOU WIN!");
+                Engine.GetCurrentScene().AddUIElement(winner);
+            }
+
         }
 
 
