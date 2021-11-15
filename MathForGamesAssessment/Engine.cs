@@ -122,14 +122,31 @@ namespace MathForGamesAssessment
             //Add enemy4 to scene
             scene.AddActor(enemy4);
 
+            
+            //Planet
+            Actor planet = new Actor(1, 1, "Planet", "Images/bullet.png");
+            planet.SetScale(50, 50);
+            planet.SetTranslation(600, 40);
+            //Planet Collider
+            CircleCollider planetCircleCollider = new CircleCollider(10, planet);
+            planet.Collider = planetCircleCollider;
+            //Add planet to scene
+            scene.AddActor(planet);
+
+            
+
+
             //Star
             Actor star = new Actor(1, 1, "Star", "Images/bullet.png");
-            star.SetScale(50, 50);
-            star.SetTranslation(100, 100);
+            star.SetScale(1, 1);
+            star.SetTranslation(1, 1);
             //Star Collider
             CircleCollider starCircleCollider = new CircleCollider(10, star);
             star.Collider = starCircleCollider;
-            //Add 
+            //Add star as child
+            planet.AddChild(star);
+            //Add star to scene
+            scene.AddActor(star);
 
             _currentSceneIndex = AddScene(scene);
             _scenes[_currentSceneIndex].Start();
@@ -146,6 +163,8 @@ namespace MathForGamesAssessment
         {
             //Update scenes and the current scene index
             _scenes[_currentSceneIndex].Update(deltaTime, _scenes[_currentSceneIndex]);
+
+            
         }
 
         /// <summary>

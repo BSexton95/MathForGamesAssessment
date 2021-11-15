@@ -57,6 +57,9 @@ namespace MathForGamesAssessment
             else
                 _speed = 100;
 
+           
+
+
 
             //If player pressed the spacebar...
             if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using MathLibrary;
+using Raylib_cs;
 
 namespace MathForGamesAssessment
 {
@@ -275,12 +276,15 @@ namespace MathForGamesAssessment
             //Call function to update all transforms
             UpdateTransforms();
 
-            /*
+            
             //If the actor is not the player...
             if (_name != "Player")
                 //...rotate the actor
                 Rotate(deltaTime);
-            */
+
+            if (Raylib.IsKeyPressed(KeyboardKey.KEY_B) && _name == "Planet")
+                Scale(5, 5);
+
 
             //Writes actors local position on the x and y to the console screen
             Console.WriteLine(_name + ": " + LocalPosition.X + ", " + LocalPosition.Y);
