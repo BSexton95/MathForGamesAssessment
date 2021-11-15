@@ -12,7 +12,7 @@ namespace MathForGamesAssessment
         private static bool _applicationShouldClose;
         
         //Array of scenes initalized to have zero scenes
-        private Scene[] _scenes = new Scene[0];
+        private static Scene[] _scenes = new Scene[0];
         private static int _currentSceneIndex;
 
         private Stopwatch _stopWatch = new Stopwatch();
@@ -69,9 +69,11 @@ namespace MathForGamesAssessment
             //Create an instance of a scene
             Scene scene = new Scene();
 
+            
+
             //Player
             Player player = new Player(1, 1, 100, "Player", "Images/player.png");
-            player.SetScale(50, 50);
+            player.SetScale(40, 40);
             player.SetTranslation(400, 200);
             player.SetRotation(1.57f);
             //Player Collider
@@ -82,46 +84,45 @@ namespace MathForGamesAssessment
 
             //Enemy1
             Enemy enemy = new Enemy(1, 1, 50, 50, 50, player, "Enemy", "Images/enemy.png");
-            enemy.SetScale(50, 50);
+            enemy.SetScale(40, 40);
             enemy.SetTranslation(400, 40);
             enemy.SetRotation(-1.57f);
             //Enemy1 Collider
-            AABBCollider enemyBoxCollider = new AABBCollider(50, 50, enemy);
+            AABBCollider enemyBoxCollider = new AABBCollider(40, 40, enemy);
             enemy.Collider = enemyBoxCollider;
             //Add enemy to scene
             scene.AddActor(enemy);
 
             //Enemy2
             Enemy enemy2 = new Enemy(1, 1, 40, 50, 50, player, "Enemy", "Images/enemy.png");
-            enemy2.SetScale(50, 50);
+            enemy2.SetScale(40, 40);
             enemy2.SetTranslation(200, 40);
             enemy2.SetRotation(-1.57f);
             //Enemy2 Collider
-            AABBCollider enemy2BoxCollider = new AABBCollider(50, 50, enemy2);
+            AABBCollider enemy2BoxCollider = new AABBCollider(40, 40, enemy2);
             enemy2.Collider = enemy2BoxCollider;
             //Add enemy2 to scene
             scene.AddActor(enemy2);
 
             //Enemy3
             Enemy enemy3 = new Enemy(1, 1, 40, 50, 50, player, "Enemy", "Images/enemy.png");
-            enemy3.SetScale(50, 50);
+            enemy3.SetScale(40, 40);
             enemy3.SetTranslation(1000, 40);
             //Enemy3 Collider
-            AABBCollider enemy3BoxCollider = new AABBCollider(50, 50, enemy3);
+            AABBCollider enemy3BoxCollider = new AABBCollider(40, 40, enemy3);
             enemy3.Collider = enemy3BoxCollider;
             //Add enemy3 to scene
             scene.AddActor(enemy3);
 
             //Enemy4
             Enemy enemy4 = new Enemy(1, 1, 50, 50, 50, player,"Enemy", "Images/enemy.png");
-            enemy4.SetScale(50, 50);
+            enemy4.SetScale(40, 40);
             enemy4.SetTranslation(-1000, 40);
             //Enemy4 Collider
-            AABBCollider enemy4BoxCollider = new AABBCollider(50, 50, enemy4);
+            AABBCollider enemy4BoxCollider = new AABBCollider(40, 40, enemy4);
             enemy4.Collider = enemy4BoxCollider;
             //Add enemy4 to scene
             scene.AddActor(enemy4);
-
             
             //Planet
             Actor planet = new Actor(1, 1, "Planet", "Images/bullet.png");
@@ -132,9 +133,6 @@ namespace MathForGamesAssessment
             planet.Collider = planetCircleCollider;
             //Add planet to scene
             scene.AddActor(planet);
-
-            
-
 
             //Star
             Actor star = new Actor(1, 1, "Star", "Images/bullet.png");
@@ -147,6 +145,13 @@ namespace MathForGamesAssessment
             planet.AddChild(star);
             //Add star to scene
             scene.AddActor(star);
+
+            //UIText Points
+            UIText points = new UIText(1, 1, Color.BLUE, "Points", "Enemys: " + GameManager._enemyCounter + "\n Lives: " + GameManager._lives);
+            
+
+            PlayerHud playerHud = new PlayerHud(player, points);
+            scene.AddUIElement(playerHud);
 
             _currentSceneIndex = AddScene(scene);
             _scenes[_currentSceneIndex].Start();
@@ -162,9 +167,10 @@ namespace MathForGamesAssessment
         private void Update(float deltaTime)
         {
             //Update scenes and the current scene index
-            _scenes[_currentSceneIndex].Update(deltaTime, _scenes[_currentSceneIndex]);
+            _scenes[_currentSceneIndex].Update(deltaTime);
+            //Update UI and the current scene index
+            _scenes[_currentSceneIndex].UpdateUI(deltaTime);
 
-            
         }
 
         /// <summary>
@@ -177,8 +183,9 @@ namespace MathForGamesAssessment
             //Set background color
             Raylib.ClearBackground(Color.LIGHTGRAY);
 
-            //Draws actors in scene
+            //Draws actors in scene and UI in scene
             _scenes[_currentSceneIndex].Draw();
+            _scenes[_currentSceneIndex].DrawUI();
 
             Raylib.EndDrawing();
         }
@@ -243,6 +250,17 @@ namespace MathForGamesAssessment
         public static void CloseApplication()
         {
             _applicationShouldClose = true;
+        }
+
+        public static void DestroyActor(Actor actor)
+        {
+            _scenes[_currentSceneIndex].RemoveActor(actor);
+            actor.End();
+        }
+
+        public static Scene GetCurrentScene()
+        {
+            return _scenes[_currentSceneIndex];
         }
     }
 }

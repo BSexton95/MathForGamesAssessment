@@ -43,7 +43,7 @@ namespace MathForGamesAssessment
             _speed = speed;
         }
 
-        public override void Update(float deltaTime, Scene currentScene)
+        public override void Update(float deltaTime)
         {
             //Get the player input direction
             int xDirection = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_A))
@@ -71,7 +71,7 @@ namespace MathForGamesAssessment
                 bullet.Collider = bulletCricleCollider;
 
                 //Add bullet to scene
-                currentScene.AddActor(bullet);
+                Engine.GetCurrentScene().AddActor(bullet);
             }
 
             //Create a vector that stores the move input
@@ -85,10 +85,10 @@ namespace MathForGamesAssessment
             if (Velocity.Magnitude > 0)
                 Forward = Velocity.Normalized;
 
-            base.Update(deltaTime, currentScene);
+            base.Update(deltaTime);
         }
 
-        public override void OnCollision(Actor actor, Scene scene)
+        public override void OnCollision(Actor actor)
         {
             //If player collides with enemy...
             if(actor is Enemy)

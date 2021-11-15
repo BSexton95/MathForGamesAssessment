@@ -53,11 +53,17 @@ namespace MathForGamesAssessment
             _maxSightDistance = maxSightDistance;
         }
 
+        public override void Start()
+        {
+            base.Start();
+            GameManager._enemyCounter++;
+        }
+
         /// <summary>
         /// Updates the enemys velocity
         /// </summary>
         /// <param name="deltaTime">Elapsed time</param>
-        public override void Update(float deltaTime, Scene currentScene)
+        public override void Update(float deltaTime)
         {
             //Find distance between the enemy and its target
             Vector2 enemyDistance = (_target.LocalPosition - LocalPosition).Normalized;
@@ -76,7 +82,7 @@ namespace MathForGamesAssessment
                 
             }
             LookAt(_target.LocalPosition);
-            base.Update(deltaTime, currentScene);
+            base.Update(deltaTime);
         }
 
         /// <summary>
@@ -108,6 +114,13 @@ namespace MathForGamesAssessment
             base.Draw();
             Collider.Draw();
         }
+
+        public override void End()
+        {
+            GameManager._enemyCounter--;
+        }
+
+
 
     }
 }

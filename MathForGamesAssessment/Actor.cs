@@ -169,6 +169,8 @@ namespace MathForGamesAssessment
                 _sprite = new Sprite(path);
         }
 
+        public Actor() { }
+
         /// <summary>
         /// Updates all transforms
         /// </summary>
@@ -268,7 +270,7 @@ namespace MathForGamesAssessment
         /// Updates actors transforms, rotates actor, and displays the actors local position
         /// </summary>
         /// <param name="deltaTime">Elapsed time</param>
-        public virtual void Update(float deltaTime, Scene currentScene)
+        public virtual void Update(float deltaTime)
         {
             //Sets the local transform to be the translatios multiplyed by the rotation and scale.
             _localTransform = _translation * _rotation * _scale;
@@ -297,13 +299,13 @@ namespace MathForGamesAssessment
         {
             if (_sprite != null)
                 _sprite.Draw(GlobalTransform);
-
-            Collider.Draw();
+           
+            //Collider.Draw();
         }
 
-        public void End() { }
+        public virtual void End() { }
 
-        public virtual void OnCollision(Actor actor, Scene scene) { }
+        public virtual void OnCollision(Actor actor) { }
 
         /// <summary>
         /// Checks if this actor collided with another actor

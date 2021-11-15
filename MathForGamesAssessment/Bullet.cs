@@ -49,11 +49,11 @@ namespace MathForGamesAssessment
         /// Updates bullet every time engine is updated
         /// </summary>
         /// <param name="deltaTime">Elapsed time</param>
-        public override void Update(float deltaTime, Scene currentScene)
+        public override void Update(float deltaTime)
         {
             LocalPosition += _bulletDirection.Normalized * Speed * deltaTime;
 
-            base.Update(deltaTime, currentScene);
+            base.Update(deltaTime);
         }
 
         /// <summary>
@@ -68,14 +68,14 @@ namespace MathForGamesAssessment
         /// When a collision with a bullet occurs...
         /// </summary>
         /// <param name="actor"></param>
-        public override void OnCollision(Actor actor, Scene scene)
+        public override void OnCollision(Actor actor)
         {
             //If bullet collides with enemy...
             if (actor is Enemy)
             {
                 //...enemy and the bullet are removed from scene
-                scene.RemoveActor(actor);
-                scene.RemoveActor(this);
+                Engine.DestroyActor(actor);
+                Engine.DestroyActor(this);
             }
 
         }
