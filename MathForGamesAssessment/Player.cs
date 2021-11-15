@@ -94,7 +94,14 @@ namespace MathForGamesAssessment
             if(actor is Enemy)
             {
                 //...player respawns
-                LocalPosition = new Vector2(20, 20);
+                LocalPosition = new Vector2(400, 400);
+                
+                //Decrements lives when player runs into enemy
+                GameManager._lives--;
+
+                //When player has no more lives...
+                if (GameManager._lives < 1)
+                    Engine.CloseApplication();
             }
         }
     }

@@ -7,7 +7,7 @@ namespace MathForGamesAssessment
     class GameManager
     {
         public static int _enemyCounter;
-        public static int _lives;
+        public static int _lives = 3;
 
         public void Update()
         {

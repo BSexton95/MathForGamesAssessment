@@ -6,13 +6,13 @@ namespace MathForGamesAssessment
 {
     class PlayerHud : Actor
     {
-        private Player _player;
         private UIText _enemys;
+        private UIText _lives;
 
-        public PlayerHud(Player player, UIText enemys)
+        public PlayerHud(UIText enemys, UIText lives)
         {
-            _player = player;
             _enemys = enemys;
+            _lives = lives;
         }
 
         public override void Start()
@@ -25,6 +25,7 @@ namespace MathForGamesAssessment
             base.Update(deltaTime);
 
             _enemys.Text = "Enemys: " + GameManager._enemyCounter;
+            _lives.Text = "Lives: " + GameManager._lives;
         }
 
         public override void Draw()
@@ -32,6 +33,7 @@ namespace MathForGamesAssessment
             base.Draw();
 
             _enemys.Draw();
+            _lives.Draw();
         }
     }
 }

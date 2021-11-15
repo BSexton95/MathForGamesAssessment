@@ -147,10 +147,10 @@ namespace MathForGamesAssessment
             scene.AddActor(star);
 
             //UIText Points
-            UIText points = new UIText(1, 1, Color.BLUE, "Points", "Enemys: " + GameManager._enemyCounter + "\n Lives: " + GameManager._lives);
-            
+            UIText enemys = new UIText(, 10, Color.BLUE, "Enemys", "Enemys: " + GameManager._enemyCounter);
+            UIText lives = new UIText(1, 1, Color.BLUE, "Lives", "Lives: " + GameManager._lives);
 
-            PlayerHud playerHud = new PlayerHud(player, points);
+            PlayerHud playerHud = new PlayerHud(enemys, lives);
             scene.AddUIElement(playerHud);
 
             _currentSceneIndex = AddScene(scene);
@@ -252,12 +252,20 @@ namespace MathForGamesAssessment
             _applicationShouldClose = true;
         }
 
+        /// <summary>
+        /// Function removes actor from current scene and calls its end function
+        /// </summary>
+        /// <param name="actor">Actor to be destroyed</param>
         public static void DestroyActor(Actor actor)
         {
             _scenes[_currentSceneIndex].RemoveActor(actor);
             actor.End();
         }
 
+        /// <summary>
+        /// Get the current scene
+        /// </summary>
+        /// <returns>returns the current scene</returns>
         public static Scene GetCurrentScene()
         {
             return _scenes[_currentSceneIndex];

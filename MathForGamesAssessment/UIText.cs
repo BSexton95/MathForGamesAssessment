@@ -35,7 +35,7 @@ namespace MathForGamesAssessment
         public override void Draw()
         {
             Rectangle textBox = new Rectangle(LocalPosition.X, LocalPosition.Y, Width, Height);
-            Raylib.DrawRectangleRec(textBox, Color.BLACK);
+            //Raylib.DrawRectangleRec(textBox, Color.BLACK);
             Raylib.DrawTextRec(Font, Text, textBox, FontSize, 1, true, Color.BLUE);
         }
     }
