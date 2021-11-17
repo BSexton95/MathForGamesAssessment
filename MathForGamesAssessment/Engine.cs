@@ -216,12 +216,20 @@ namespace MathForGamesAssessment
             PlayerHud playerHud = new PlayerHud(enemys, lives);
             scene.AddUIElement(playerHud);
 
+            //WASD Controls
+            UIText controlsWASD = new UIText(1, 350, Color.BLUE, "Controls", "WASD moves player ship.");
+            scene.AddUIElement(controlsWASD);
+
+            //Space Control
+            UIText space = new UIText(1, 375, Color.BLUE, "Space", "Space to shoot");
+            scene.AddUIElement(space);
+
             //Scaling Example
             UIText scaleExample = new UIText(1, 400, Color.BLUE, "Scale Example", "Want a bigger planet? Press B");
             scene.AddUIElement(scaleExample);
 
             //UIText to tell player shift increases speed
-            UIText speedUp = new UIText(1, 420, Color.BLUE, "Speed Up", "To speed up hold left shift");
+            UIText speedUp = new UIText(1, 425, Color.BLUE, "Speed Up", "To speed up hold left shift");
             scene.AddUIElement(speedUp);
 
             _currentSceneIndex = AddScene(scene);
