@@ -17,8 +17,11 @@ namespace MathForGamesAssessment
 
         private Matrix3 _globalTransform = Matrix3.Identity;
         private Matrix3 _localTransform = Matrix3.Identity;
+        //The actors movement
         private Matrix3 _translation = Matrix3.Identity;
+        //The actors rotation
         private Matrix3 _rotation = Matrix3.Identity;
+        //The actors size
         private Matrix3 _scale = Matrix3.Identity;
 
         private Actor[] _children = new Actor[0];
@@ -142,7 +145,7 @@ namespace MathForGamesAssessment
         }
 
         /// <summary>
-        /// The sprite attache to the actor
+        /// The sprite attached to the actor
         /// </summary>
         public Sprite Sprite
         {
@@ -214,10 +217,10 @@ namespace MathForGamesAssessment
         }
 
         /// <summary>
-        /// Removes a child from the actor array lis
+        /// Removes a child from the actor array list
         /// </summary>
         /// <param name="child">The child to be removed from the array</param>
-        /// <returns>True if child was successfuly removed from the array</returns>
+        /// <returns>True if child was successfully removed from the array</returns>
         public bool RemoveChild(Actor child)
         {
             //Create a variable to store if the removal was successful
@@ -383,7 +386,7 @@ namespace MathForGamesAssessment
         /// <summary>
         /// Rotates the actor to face the given position
         /// </summary>
-        /// <param name="position"></param>
+        /// <param name="position">The position of the actor to look at</param>
         public void LookAt(Vector2 position)
         {
             //Find the direction the actor should look in
