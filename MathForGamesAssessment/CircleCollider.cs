@@ -49,6 +49,11 @@ namespace MathForGamesAssessment
             return distance <= combinedRadii;
         }
 
+        /// <summary>
+        /// Checks for a collision for collider type AABB
+        /// </summary>
+        /// <param name="other"> The AABB collider</param>
+        /// <returns>The distance from the closest point greater than or equal to the collision radius</returns>
         public override bool CheckCollisionAABB(AABBCollider other)
         {
             //Return false if this collider is checking collision against itself

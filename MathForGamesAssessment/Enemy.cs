@@ -39,7 +39,7 @@ namespace MathForGamesAssessment
         /// <param name="x">Enemy x position</param>
         /// <param name="y">Enemy y position</param>
         /// <param name="speed">Enemy speed</param>
-        /// <param name="maxSightDistance"> Enemy max distatnce it can see</param>
+        /// <param name="maxSightDistance"> Enemy max distance it can see</param>
         /// <param name="maxViewAngle">Enemy max angle it can view</param>
         /// <param name="target">The actor the enemy will follow</param>
         /// <param name="name">Enemy name</param>
@@ -119,6 +119,10 @@ namespace MathForGamesAssessment
             Collider.Draw();
         }
 
+        /// <summary>
+        /// Decriments enemy counter after every enemy shoot 
+        /// and displays "You Win!" when enemy counter reaches 0.
+        /// </summary>
         public override void End()
         {
             GameManager._enemyCounter--;
@@ -128,10 +132,6 @@ namespace MathForGamesAssessment
                 UIText winner = new UIText(300, 200, Color.BLUE, "Winner", "YOU WIN!");
                 Engine.GetCurrentScene().AddUIElement(winner);
             }
-
         }
-
-
-
     }
 }

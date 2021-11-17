@@ -65,9 +65,9 @@ namespace MathForGamesAssessment
         }
 
         /// <summary>
-        /// When a collision with a bullet occurs...
+        /// When a collision with a bullet occurs the enemy and the bullet are destroyed
         /// </summary>
-        /// <param name="actor"></param>
+        /// <param name="actor">The actor that collision occured with</param>
         public override void OnCollision(Actor actor)
         {
             //If bullet collides with enemy...

@@ -13,6 +13,17 @@ namespace MathForGamesAssessment
         public int FontSize;
         public Font Font;
 
+        /// <summary>
+        /// UIText constructor
+        /// </summary>
+        /// <param name="x">The x position of the text box</param>
+        /// <param name="y">The y position of the text box</param>
+        /// <param name="color">The color of the text</param>
+        /// <param name="name">The text name</param>
+        /// <param name="width">How wide the text box is from left to right</param>
+        /// <param name="height">How large from top to bottom the text box is</param>
+        /// <param name="fontSize">The size of the text</param>
+        /// <param name="text"> The text to be displayed on screen</param>
         public UIText(float x, float y, Color color, string name, int width, int height, int fontSize, string text = "")
             : base(x, y, name)
         {
@@ -23,6 +34,7 @@ namespace MathForGamesAssessment
             FontSize = fontSize;
         }
 
+        //Overload that sets the Width, Height, and Font size.
         public UIText(float x, float y, Color color, string name, string text = " ") : base(x, y, name)
         {
             Text = text;
@@ -32,6 +44,9 @@ namespace MathForGamesAssessment
             FontSize = 20;
         }
 
+        /// <summary>
+        /// Draws a text box
+        /// </summary>
         public override void Draw()
         {
             Rectangle textBox = new Rectangle(LocalPosition.X, LocalPosition.Y, Width, Height);

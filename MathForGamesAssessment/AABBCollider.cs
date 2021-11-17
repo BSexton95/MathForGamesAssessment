@@ -112,7 +112,7 @@ namespace MathForGamesAssessment
         /// <summary>
         /// Checks for a collision between a circle collider and an AABB collider
         /// </summary>
-        /// <param name="other"></param>
+        /// <param name="other">The circle collider</param>
         /// <returns></returns>
         public override bool CheckCollisionCircle(CircleCollider other)
         {

@@ -43,6 +43,10 @@ namespace MathForGamesAssessment
             _speed = speed;
         }
 
+        /// <summary>
+        /// Updates player input.
+        /// </summary>
+        /// <param name="deltaTime">Elapsed time</param>
         public override void Update(float deltaTime)
         {
             //Get the player input direction
